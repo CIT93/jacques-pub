@@ -18,6 +18,9 @@ const total =
   annualTransportationPoints;
 console.log("Total: ", total);
 
+const totalPointsText = document.querySelector("span#points");
+totalPointsText.textContent = total;
+
 // Alternate solution
 /*let totalAlt = householdPoints;
 totalAlt += sizeOfHomePoints;
