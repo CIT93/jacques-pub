@@ -1,61 +1,87 @@
-let carbonFootprintPoints = 0;
-// const numberInHousehold = 9;
-
-function determineHouseholdPts(numberInHousehold) {
-  console.log("Inside the function.");
-  // if (numberInHousehold === 1) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 14;
-  // } else if (numberInHousehold === 2) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 12;
-  // } else if (numberInHousehold === 3) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 10;
-  // } else if (numberInHousehold === 4) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 8;
-  // } else if (numberInHousehold === 5) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 6;
-  // } else if (numberInHousehold === 6) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 4;
-  // } else if (numberInHousehold > 6) {
-  //   carbonFootprintPoints = carbonFootprintPoints + 2;
-  // } else {
-  //   console.log("no update to points");
-  // }
-
-  // console.log(`Based on the number of household members (${numberInHousehold}), the points would be ${carbonFootprintPoints}`);
-
-  const check = numberInHousehold > 6 ? "more" : numberInHousehold;
-
-  switch (check) {
-    case 1:
-      carbonFootprintPoints = carbonFootprintPoints + 14;
+// Beginner Solution
+function considerSizeOfYourHome(homeSize) {
+  let impactPoints = 0;
+  switch (homeSize) {
+    case "large":
+      impactPoints += 10;
       break;
-    case 2:
-      carbonFootprintPoints = carbonFootprintPoints + 12;
+    case "medium":
+      impactPoints += 7;
       break;
-    case 3:
-      carbonFootprintPoints = carbonFootprintPoints + 10;
+    case "small":
+      impactPoints += 4;
       break;
-    case 4:
-      carbonFootprintPoints = carbonFootprintPoints + 8;
-      break;
-    case 5:
-      carbonFootprintPoints = carbonFootprintPoints + 6;
-      break;
-    case 6:
-      carbonFootprintPoints = carbonFootprintPoints + 4;
-      break;
-    case "more":
-      carbonFootprintPoints = carbonFootprintPoints + 2;
+    case "apartment":
+      impactPoints += 2;
       break;
     default:
-      console.log("No points provided.");
+      console.log("Could not determine home size provided.");
+      return;
   }
 
   console.log(
-    `Based on the number of household members (${numberInHousehold}), the points would be ${carbonFootprintPoints}`
+    `Because the size of your home is ${homeSize}, your impact points are ${impactPoints}`
   );
 }
+considerSizeOfYourHome("large");
+considerSizeOfYourHome("small");
+considerSizeOfYourHome("blah");
+// END OF BEGINNER SOLUTION
 
-determineHouseholdPts(3);
-determineHouseholdPts(4);
+// Intermediate
+window.onload = () => {
+  // Uncomment getHomeSize to trigger this solution (make sure to comment above first!)
+  // getHomeSize();
+};
+const getImpactPoints = (homeSize, points) =>
+  console.log(
+    `Because the size of your home is ${homeSize}, your impact points are ${points}.`
+  );
 
+function setImpactPoints(sizeOfHome) {
+  let impactPoints = 0;
+  switch (sizeOfHome) {
+    case "large":
+      impactPoints += 10;
+      break;
+    case "medium":
+      impactPoints += 7;
+      break;
+    case "small":
+      impactPoints += 4;
+      break;
+    case "apartment":
+      impactPoints += 2;
+      break;
+    default:
+      throw new Error("An error occured. Please refresh page.");
+  }
+  getImpactPoints(sizeOfHome, impactPoints);
+}
+
+function getHomeSize() {
+  let homeSizeChoices = ["large", "medium", "small", "apartment"];
+  let homeSize = prompt(
+    "What is your home size? Please ONLY choose ONE of the following: large, medium, small, apartment"
+  );
+  if (!homeSize) {
+    handlePromptError(getHomeSize, "none");
+  } else if (!homeSizeChoices.includes(homeSize)) {
+    handlePromptError(getHomeSize);
+  } else {
+    setImpactPoints(homeSize);
+  }
+}
+
+function handlePromptError(call, promptTypeError = null) {
+  if (promptTypeError === "none") {
+    alert("Did you forget something? Please try again.");
+    call();
+  } else {
+    alert(
+      "Hey! Very funny. Please, ONLY choose ONE of the following: large, medium, small, apartment"
+    );
+    call();
+  }
+}
+// END OF INTERMEDIATE SOLUTION
