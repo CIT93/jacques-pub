@@ -62,23 +62,76 @@ function considerSizeOfYourHome(homeSize) {
 
 function start(houseHoldMembers, houseSize) {
   const householdPTS = determineHouseholdPts(houseHoldMembers);
-  console.log(householdPTS);
   const homesizePTS = considerSizeOfYourHome(houseSize);
-  console.log(homesizePTS);
   const total = homesizePTS + householdPTS;
-  cfpData.push(houseHoldMembers, houseSize, householdPTS, homesizePTS, total);
-
-  console.log(
-    !isNaN(total)
-      ? `Total Carbon Footprint score so far is ${total}`
-      : "Sorry, an error occured."
-  );
+  cfpData.push([houseHoldMembers, houseSize, householdPTS, homesizePTS, total]);
 }
 
-function displayOutput() {}
+// Follow Along Version
+// function displayOutput() {
+//   for (arr of cfpData) {
+//     console.log(arr);
+//     const output = document.getElementById("output");
+//     const newP = document.createElement("p");
+//     newP.textContent = `Carbon Footprint total is ${arr[4]}`;
+//     const houseSizeDetails = document.createElement("p");
+//     houseSizeDetails.textContent = `Because your home size is ${arr[1]}, you score ${arr[3]} points.`;
+//     const householdDetails = document.createElement("p");
+//     householdDetails.textContent = `Since your total number of household members is ${arr[0]}, you score ${arr[2]} points.`;
+//     const hr = document.createElement("hr");
+//     const h2 = document.createElement("h2");
+//     h2.textContent = "Entry";
+//     output.appendChild(h2);
+//     output.appendChild(houseSizeDetails);
+//     output.appendChild(householdDetails);
+//     output.appendChild(newP);
+//     output.appendChild(hr);
+//   }
+// }
 
 start(5, "apartment");
 start(4, "large");
 start(3, "medium");
 
-displayOutput();
+// displayOutput();
+
+// My version
+window.onload = () => init();
+
+function createElement(elementType, elementText = null) {
+  const newElement = document.createElement(elementType);
+  if (!elementText) {
+    return newElement;
+  } else {
+    const newText = document.createTextNode(elementText);
+    newElement.appendChild(newText);
+  }
+  return newElement;
+}
+
+function displayContent(elements) {
+  const wrapper = document.getElementById("output");
+  wrapper.append(...elements);
+}
+
+function init() {
+  let elements = [];
+  for (set of cfpData) {
+    const [numOfHHM, houseSize, numHHPoints, numHSPoints, total] = set;
+    const householdDetails = createElement(
+      "p",
+      `Since your total number of household members is ${numOfHHM}, you score ${numHHPoints} points.`
+    );
+    const houseSizeDetails = createElement(
+      "p",
+      `Because your home size is ${houseSize}, you score ${numHSPoints} points.`
+    );
+    const totalDetails = createElement(
+      "p",
+      `Carbon Footprint total is ${total}`
+    );
+    const hr = createElement("hr");
+    elements.push(householdDetails, houseSizeDetails, totalDetails, hr);
+  }
+  displayContent(elements);
+}
