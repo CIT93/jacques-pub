@@ -74,7 +74,6 @@ function start(houseHoldMembers, houseSize) {
 
 function displayOutput() {
   for (obj of cfpData) {
-    console.log(obj);
     const output = document.getElementById("output");
     const newP = document.createElement("p");
     newP.textContent = `Carbon Footprint total is ${obj.cfpTotal}`;
