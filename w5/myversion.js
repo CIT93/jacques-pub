@@ -117,4 +117,3 @@ function considerSizeOfYourHome(homeSize) {
 start(5, "apartment");
 start(4, "large");
 start(3, "medium");
-console.log("okay");
