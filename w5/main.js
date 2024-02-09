@@ -74,13 +74,14 @@ function start(houseHoldMembers, houseSize) {
 
 function displayOutput() {
   for (obj of cfpData) {
+    console.log(obj);
     const output = document.getElementById("output");
     const newP = document.createElement("p");
-    newP.textContent = `Carbon Footprint total is ${obj.total}`;
+    newP.textContent = `Carbon Footprint total is ${obj.cfpTotal}`;
     const houseSizeDetails = document.createElement("p");
-    houseSizeDetails.textContent = `Because your home size is ${obj.houseSize}, you score ${obj.homesizePTS} points.`;
+    houseSizeDetails.textContent = `Because your home size is ${obj.houseS}, you score ${obj.houseSPTS} points.`;
     const householdDetails = document.createElement("p");
-    householdDetails.textContent = `Since your total number of household members is ${obj.houseHoldMembers}, you score ${obj.householdPTS} points.`;
+    householdDetails.textContent = `Since your total number of household members is ${obj.houseM}, you score ${obj.houseMPTS} points.`;
     const hr = document.createElement("hr");
     const h2 = document.createElement("h2");
     h2.textContent = "Entry";
