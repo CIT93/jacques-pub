@@ -35,7 +35,7 @@ function displayContent(elements) {
 function init() {
   let elements = [];
   cfpData.length > 0 &&
-    cfpData.map((data) => {
+    cfpData.forEach((data) => {
       const householdDetails = createElement(
         "p",
         `Since your total number of household members is ${data.houseHoldMembers}, you score ${data.householdPTS} points.`
@@ -117,3 +117,4 @@ function considerSizeOfYourHome(homeSize) {
 start(5, "apartment");
 start(4, "large");
 start(3, "medium");
+console.log("okay");
