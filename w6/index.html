@@ -7,6 +7,11 @@
     <title>Week Six - Carbon Footprint - Public</title>
     <script src="main.js" defer></script>
     <style>
+      :root {
+        --light-mode: whitesmoke;
+        --dark-mode: #333;
+      }
+
       html {
         font-size: 22px;
       }
@@ -14,27 +19,53 @@
         background-color: #333;
         color: whitesmoke;
       }
+      form {
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      @media only screen and (max-width: 800px) {
+        form {
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
+    <button id="theme-mode"></button>
     <form action="" id="form">
       <fieldset>
         <legend>Input Carbon Footprint</legend>
         <div>
-            <label for="firstnameInput">First name:</label>
-            <input type="text" id="firstnameInput" name="firstname">
+          <label for="firstnameInput">First name:</label>
+          <input
+            type="text"
+            id="firstnameInput"
+            name="firstname"
+            required
+            minlength="1"
+            maxlength="20"
+          />
         </div>
         <div>
-            <label for="lastname">Last name:</label>
-            <input type="text" name="lastname" id="lastnameInput">
+          <label for="lastname">Last name:</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastnameInput"
+            required
+            minlength="1"
+            maxlength="20"
+          />>
         </div>
         <div>
           <label for="householdMembersInput"
-            >Number of members in your household (not including yourself)?</label
+            >Number of members in your household (not including
+            yourself)?</label
           >
           <select
             name="householdMembers"
-            required="required"
+            required
             id="householdMembersInput"
           >
             <option value="0">None</option>
@@ -51,7 +82,7 @@
           <select
             type="text"
             name="houseSize"
-            required="required"
+            required
             id="houseSizeInput"
           >
             <option value="small">Small</option>
@@ -63,6 +94,18 @@
         <button type="submit">Submit</button>
       </fieldset>
     </form>
-    <div id="output"></div>
+    <section>
+      <h2>Carbon Footprint Entries</h2>
+      <ul id="output"></ul>
+    </section>
+    <template id="cfpTemplate">
+      <li>
+        <h3></h3>
+        <p></p>
+        <p></p>
+        <p></p>
+        <hr>
+      </li>
+    </template>
   </body>
 </html>

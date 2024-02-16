@@ -61,36 +61,40 @@ function considerSizeOfYourHome(homeSize) {
   return impactPoints;
 }
 
-function start(houseHoldMembers, houseSize) {
+function start(houseHoldMembers, houseSize, firstname, lastname) {
   const householdPTS = determineHouseholdPts(houseHoldMembers);
   const homesizePTS = considerSizeOfYourHome(houseSize);
   const total = homesizePTS + householdPTS;
-  cfpData.push({
+  const newItem = {
     houseM: houseHoldMembers,
     houseS: houseSize,
     houseMPTS: householdPTS,
     houseSPTS: homesizePTS,
     cfpTotal: total,
-  });
+    firstname,
+    lastname,
+  };
+  cfpData.push(newItem);
+  return newItem;
 }
 
-function displayOutput() {
-  for (obj of cfpData) {
-    const newP = document.createElement("p");
-    newP.textContent = `Carbon Footprint total is ${obj.cfpTotal}`;
-    const houseSizeDetails = document.createElement("p");
-    houseSizeDetails.textContent = `Because your home size is ${obj.houseS}, you score ${obj.houseSPTS} points.`;
-    const householdDetails = document.createElement("p");
-    householdDetails.textContent = `Since your total number of household members is ${obj.houseM}, you score ${obj.houseMPTS} points.`;
-    const hr = document.createElement("hr");
-    const h2 = document.createElement("h2");
-    h2.textContent = "Entry";
-    output.appendChild(h2);
-    output.appendChild(houseSizeDetails);
-    output.appendChild(householdDetails);
-    output.appendChild(newP);
-    output.appendChild(hr);
-  }
+function displayOutput(obj) {
+  const newP = document.createElement("p");
+  newP.textContent = `Carbon Footprint total is ${obj.cfpTotal}`;
+  const houseSizeDetails = document.createElement("p");
+  houseSizeDetails.textContent = `Because your home size is ${obj.houseS}, you score ${obj.houseSPTS} points.`;
+  const householdDetails = document.createElement("p");
+  householdDetails.textContent = `Since your total number of household members is ${obj.houseM}, you score ${obj.houseMPTS} points.`;
+  const hr = document.createElement("hr");
+  const h2 = document.createElement("h2");
+  h2.textContent = obj.firstname + obj.lastname;
+  const li = document.createElement("li");
+  li.appendChild(h2);
+  li.appendChild(houseSizeDetails);
+  li.appendChild(householdDetails);
+  li.appendChild(newP);
+  li.appendChild(hr);
+  output.appendChild(li);
 }
 
 FORM.addEventListener("submit", function (e) {
@@ -99,8 +103,7 @@ FORM.addEventListener("submit", function (e) {
   const lastName = FORM.lastname.value;
   const householdMembers = parseInt(FORM.householdMembers.value);
   const houseSize = FORM.houseSize.value;
-  start(householdMembers, houseSize);
-  output.innerHTML = "";
-  displayOutput();
+  const data = start(householdMembers, houseSize, firstName, lastName);
+  displayOutput(data);
   FORM.reset();
 });
