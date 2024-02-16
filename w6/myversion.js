@@ -50,9 +50,9 @@ function displayContent(data) {
   nameEl.textContent = data.fullName;
   const [householdDetails, houseSizeDetails, totalDetails] =
     clone.querySelectorAll("p");
-  householdDetails.textContent = `Since your total number of household members is ${data.householdM}, you score ${data.points.householdPTS} points.`;
-  houseSizeDetails.textContent = `Because your home size is ${data.houseSize}, you score ${data.points.homesizePTS} points.`;
-  totalDetails.textContent = `Carbon Footprint total is ${data.points.total}`;
+  householdDetails.textContent = `\u00A0\u00A0Since your total number of household members is ${data.householdM}, you score ${data.points.householdPTS} points.`;
+  houseSizeDetails.textContent = `\u00A0\u00A0Because your home size is ${data.houseSize}, you score ${data.points.homesizePTS} points.`;
+  totalDetails.textContent = `\u00A0\u00A0Carbon Footprint total is ${data.points.total}`;
   return clone;
 }
 
