@@ -6,7 +6,7 @@ function formSubmission(evt) {
   evt.preventDefault();
   const firstName = evt.target.firstname.value;
   const lastName = evt.target.lastname.value;
-  const householdMembers = parseInt(FORM.householdMembers.value);
+  const householdMembers = parseInt(evt.target.householdMembers.value);
   const houseSize = evt.target.houseSize.value;
   const res = {
     firstName,
