@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="authro" content="Jacque S." />
     <title>Week Six - Carbon Footprint - Public</title>
-    <script src="main.js" defer></script>
+    <!-- <script src="main.js" defer></script> -->
+    <script src="myversion.js" defer></script>
     <style>
-      :root {
-        --light-mode: whitesmoke;
-        --dark-mode: #333;
-      }
-
       html {
         font-size: 22px;
       }
@@ -19,13 +15,12 @@
         background-color: #333;
         color: whitesmoke;
       }
-      form {
+      .wrapper {
         margin: 0 auto;
         width: 80%;
       }
-
       @media only screen and (max-width: 800px) {
-        form {
+        .wrapper {
           width: 100%;
         }
       }
@@ -33,71 +28,73 @@
   </head>
   <body>
     <button id="theme-mode"></button>
-    <form action="" id="form">
-      <fieldset>
-        <legend>Input Carbon Footprint</legend>
-        <div>
-          <label for="firstnameInput">First name:</label>
-          <input
-            type="text"
-            id="firstnameInput"
-            name="firstname"
-            required
-            minlength="1"
-            maxlength="20"
-          />
-        </div>
-        <div>
-          <label for="lastname">Last name:</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastnameInput"
-            required
-            minlength="1"
-            maxlength="20"
-          />>
-        </div>
-        <div>
-          <label for="householdMembersInput"
-            >Number of members in your household (not including
-            yourself)?</label
-          >
-          <select
-            name="householdMembers"
-            required
-            id="householdMembersInput"
-          >
-            <option value="0">None</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6+</option>
-          </select>
-        </div>
-        <div>
-          <label for="houseSizeInput">What is your home size?</label>
-          <select
-            type="text"
-            name="houseSize"
-            required
-            id="houseSizeInput"
-          >
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="apartment">Apartment</option>
-          </select>
-        </div>
-        <button type="submit">Submit</button>
-      </fieldset>
-    </form>
-    <section>
-      <h2>Carbon Footprint Entries</h2>
-      <ul id="output"></ul>
-    </section>
+    <div class="wrapper">
+      <form action="" id="form">
+        <fieldset>
+          <legend>Input Carbon Footprint</legend>
+          <div>
+            <label for="firstnameInput">First name:</label>
+            <input
+              type="text"
+              id="firstnameInput"
+              name="firstname"
+              required
+              minlength="1"
+              maxlength="20"
+            />
+          </div>
+          <div>
+            <label for="lastname">Last name:</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastnameInput"
+              required
+              minlength="1"
+              maxlength="20"
+            />
+          </div>
+          <div>
+            <label for="householdMembersInput"
+              >Number of members in your household (not including
+              yourself)?</label
+            >
+            <select
+              name="householdMembers"
+              required
+              id="householdMembersInput"
+            >
+              <option value="0">None</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6+</option>
+            </select>
+          </div>
+          <div>
+            <label for="houseSizeInput">What is your home size?</label>
+            <select
+              type="text"
+              name="houseSize"
+              required
+              id="houseSizeInput"
+            >
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+              <option value="apartment">Apartment</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+      <section>
+        <h2>Carbon Footprint Entries</h2>
+        <ul id="output"></ul>
+      </section>
+    </div>
     <template id="cfpTemplate">
       <li>
         <h3></h3>
