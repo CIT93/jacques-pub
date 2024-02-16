@@ -46,6 +46,7 @@ function displayContent(data) {
   const template = document.querySelector("#cfpTemplate");
   const clone = template.content.cloneNode(true);
   const nameEl = clone.querySelector("h3");
+  nameEl.style.textTransform = "capitalize";
   nameEl.textContent = data.fullName;
   const [householdDetails, houseSizeDetails, totalDetails] =
     clone.querySelectorAll("p");
