@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="authro" content="Jacque S." />
+    <title>Week Six - Carbon Footprint - Public</title>
+    <script src="main.js" defer></script>
+    <style>
+      html {
+        font-size: 22px;
+      }
+      body {
+        background-color: #333;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" id="form">
+      <fieldset>
+        <legend>Input Carbon Footprint</legend>
+        <div>
+            <label for="firstnameInput">First name:</label>
+            <input type="text" id="firstnameInput" name="firstname">
+        </div>
+        <div>
+            <label for="lastname">Last name:</label>
+            <input type="text" name="lastname" id="lastnameInput">
+        </div>
+        <div>
+          <label for="householdMembersInput"
+            >Number of members in your household (not including yourself)?</label
+          >
+          <select
+            name="householdMembers"
+            required="required"
+            id="householdMembersInput"
+          >
+            <option value="0">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6+</option>
+          </select>
+        </div>
+        <div>
+          <label for="houseSizeInput">What is your home size?</label>
+          <select
+            type="text"
+            name="houseSize"
+            required="required"
+            id="houseSizeInput"
+          >
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="apartment">Apartment</option>
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+    <div id="output"></div>
+  </body>
+</html>
