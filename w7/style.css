@@ -83,7 +83,7 @@ tbody tr:nth-child(odd) {
 table  {
     width: 100%;
 }
-th {
+th, td{
     min-width: 60px;
 }
 thead > tr > th:first-child, 
