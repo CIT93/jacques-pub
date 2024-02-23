@@ -3,7 +3,7 @@ const TBL = document.getElementById("tab-data");
 function createTableCell(cellType, cells) {
   const tr = document.createElement("tr");
   cells.forEach(function (cell) {
-    var cellTypeEl = document.createElement(cellType);
+    let cellTypeEl = document.createElement(cellType);
     cellTypeEl.textContent = cell;
     tr.appendChild(cellTypeEl);
   });
@@ -47,14 +47,24 @@ function createTableContent(data, withHeaders = false) {
   return tableRows;
 }
 
-function renderTbl(data) {
+function renderTbl(data, details) {
+  const table = document.createElement("table");
   let tableRows;
   if (!TBL.hasChildNodes()) {
     tableRows = createTableContent(data, true);
   } else {
     tableRows = createTableContent(data);
   }
-  TBL.append(...tableRows);
+  table.append(...tableRows);
+  const tbody = table.querySelector("tbody");
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+  td.appendChild(details);
+  td.colSpan = 6;
+  tr.style.width = "100%";
+  tr.appendChild(td);
+  tbody.append(tr);
+  return table;
 }
 
 export { renderTbl };
