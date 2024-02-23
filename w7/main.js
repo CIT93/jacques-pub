@@ -18,7 +18,6 @@ function formSubmission(evt) {
   };
   const [data, summary] = handleData(res);
   const table = renderTbl(Object.values(data).slice(0, 4), summary);
-  console.log(table);
   TBL.appendChild(table);
   FORM.reset();
 }
