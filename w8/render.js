@@ -33,7 +33,6 @@ function renderTbl(data) {
       tbody = table.querySelector("tbody");
     }
   }
-
   createTblRow(data, tbody);
   table.appendChild(tbody);
   TBL.appendChild(table);
@@ -72,17 +71,29 @@ function actionBtns(data, index) {
         <i class="fa fa-trash" aria-hidden="true" title="Delete"></i>
         <span class="hidden">Delete</span>
         `;
-  delBtn.addEventListener("click", (e) => {
-    data.splice(index, 1);
-  });
-  editBtn.addEventListener("click", (e) => {});
+  delBtn.addEventListener("click", deleteNode);
+  editBtn.addEventListener("click", (e) => editNode(e, data, index));
   form.append(editBtn, delBtn);
   td.appendChild(form);
   return td;
 }
 
-function actionSubmit(e) {
+function deleteNode(e) {
   e.preventDefault();
+  const tr = e.target.closest("tr");
+  const tbody = tr.parentNode;
+  tbody.removeChild(tr);
 }
 
+function editNode(evt, data, index) {
+  evt.preventDefault();
+  const FORM = document.getElementById("form");
+  const [firstname, lastName] = FORM.querySelectorAll("input");
+  const [householdMembers, houseSize] = FORM.querySelectorAll("select");
+  firstname.value = data[index].firstName;
+  lastName.value = data[index].lastName;
+  householdMembers.value = data[index].houseM;
+  houseSize.value = data[index].houseS;
+  deleteNode(evt);
+}
 export { renderTbl };

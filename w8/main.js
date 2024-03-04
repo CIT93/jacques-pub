@@ -19,7 +19,6 @@ function start(houseHoldMembers, houseSize, firstname, lastname) {
     cfpTotal: total,
   };
   cfpData.push(newItem);
-  return newItem;
 }
 
 FORM.addEventListener("submit", function (e) {
