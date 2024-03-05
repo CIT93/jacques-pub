@@ -101,6 +101,6 @@ function editNode(evt, index) {
   lastName.value = data[index].lastName;
   householdMembers.value = data[index].houseM;
   houseSize.value = data[index].houseS;
-  deleteNode(evt);
+  deleteNode(evt, index);
 }
 export { renderTbl };
