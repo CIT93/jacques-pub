@@ -3,7 +3,7 @@ import { determineHouseholdPts, considerSizeOfYourHome } from "./cfp.js";
 
 const FORM = document.getElementById("form");
 const output = document.getElementById("output");
-const cfpData = [];
+export const cfpData = [];
 
 function start(houseHoldMembers, houseSize, firstname, lastname) {
   const householdPTS = determineHouseholdPts(houseHoldMembers);

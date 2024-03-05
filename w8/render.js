@@ -1,3 +1,4 @@
+import { cfpData } from "./main.js";
 const TBL = document.getElementById("tab-data");
 function renderTblHeading() {
   const table = document.createElement("table");
@@ -23,19 +24,21 @@ function renderTblHeading() {
 
 function renderTbl(data) {
   TBL.innerHTML = "";
-  let table, tbody;
-  if (!TBL.hasChildNodes()) {
-    table = renderTblHeading();
-    tbody = document.createElement("tbody");
-  } else {
-    table = TBL.querySelector("table");
-    if (table.querySelector("tbody")) {
-      tbody = table.querySelector("tbody");
+  if (data.length !== 0) {
+    let table, tbody;
+    if (!TBL.hasChildNodes()) {
+      table = renderTblHeading();
+      tbody = document.createElement("tbody");
+    } else {
+      table = TBL.querySelector("table");
+      if (table.querySelector("tbody")) {
+        tbody = table.querySelector("tbody");
+      }
     }
+    createTblRow(data, tbody);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
   }
-  createTblRow(data, tbody);
-  table.appendChild(tbody);
-  TBL.appendChild(table);
 }
 
 function createTblRow(data, tbody) {
@@ -49,13 +52,14 @@ function createTblRow(data, tbody) {
       td.textContent = value;
       tr.appendChild(td);
     }
-    const actionForm = actionBtns(data, index);
+    const actionForm = actionBtns(index);
     tr.appendChild(actionForm);
     tbody.appendChild(tr);
   });
 }
 
-function actionBtns(data, index) {
+function actionBtns(index) {
+  const data = cfpData;
   const td = document.createElement("td");
   const form = document.createElement("form");
   form.id = "formActions";
@@ -71,22 +75,24 @@ function actionBtns(data, index) {
         <i class="fa fa-trash" aria-hidden="true" title="Delete"></i>
         <span class="hidden">Delete</span>
         `;
-  delBtn.addEventListener("click", deleteNode);
+  delBtn.addEventListener("click", (e) => deleteNode(e, index));
   editBtn.addEventListener("click", (e) => editNode(e, data, index));
   form.append(editBtn, delBtn);
   td.appendChild(form);
   return td;
 }
 
-function deleteNode(e) {
+function deleteNode(e, index) {
   e.preventDefault();
   const tr = e.target.closest("tr");
   const tbody = tr.parentNode;
   tbody.removeChild(tr);
+  cfpData.splice(index, 1);
+  renderTbl(cfpData);
 }
 
-function editNode(evt, data, index) {
-  evt.preventDefault();
+function editNode(evt, index) {
+  const data = evt.preventDefault();
   const FORM = document.getElementById("form");
   const [firstname, lastName] = FORM.querySelectorAll("input");
   const [householdMembers, houseSize] = FORM.querySelectorAll("select");
