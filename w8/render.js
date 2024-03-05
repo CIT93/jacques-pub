@@ -92,7 +92,8 @@ function deleteNode(e, index) {
 }
 
 function editNode(evt, index) {
-  const data = evt.preventDefault();
+  evt.preventDefault();
+  const data = cfpData;
   const FORM = document.getElementById("form");
   const [firstname, lastName] = FORM.querySelectorAll("input");
   const [householdMembers, houseSize] = FORM.querySelectorAll("select");
