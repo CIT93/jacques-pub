@@ -76,7 +76,7 @@ function actionBtns(index) {
         <span class="hidden">Delete</span>
         `;
   delBtn.addEventListener("click", (e) => deleteNode(e, index));
-  editBtn.addEventListener("click", (e) => editNode(e, data, index));
+  editBtn.addEventListener("click", (e) => editNode(e, index));
   form.append(editBtn, delBtn);
   td.appendChild(form);
   return td;
