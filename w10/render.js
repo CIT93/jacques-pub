@@ -1,7 +1,7 @@
 import { FORM, TBL } from "./global.js";
 import { getSS, saveSS } from "./storage.js";
 
-const renderTblHeading = function () {
+const renderTblHeading = () => {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -13,7 +13,7 @@ const renderTblHeading = function () {
     "Footprint",
     "Actions",
   ];
-  headingTextArr.forEach(function (text) {
+  headingTextArr.forEach((text) => {
     const th = document.createElement("th");
     th.textContent = text;
     tr.appendChild(th);
@@ -23,7 +23,7 @@ const renderTblHeading = function () {
   return table;
 };
 
-const renderTbl = function (data) {
+const renderTbl = (data) => {
   TBL.innerHTML = "";
   if (data.length > 0) {
     let table, tbody;
@@ -42,7 +42,7 @@ const renderTbl = function (data) {
   }
 };
 
-const createTblRow = function (tbody) {
+const createTblRow = (tbody) => {
   const data = getSS();
   data.forEach(function (obj, index) {
     const tr = document.createElement("tr");

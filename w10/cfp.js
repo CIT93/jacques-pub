@@ -1,4 +1,4 @@
-export const determineHouseholdPts = function (numberInHousehold) {
+export const determineHouseholdPts = (numberInHousehold) => {
   let houseHoldPts = 0;
   const check =
     numberInHousehold < 1
@@ -36,7 +36,7 @@ export const determineHouseholdPts = function (numberInHousehold) {
   return houseHoldPts;
 };
 
-export const considerSizeOfYourHome = function (homeSize) {
+export const considerSizeOfYourHome = (homeSize) => {
   let impactPoints = 0;
   switch (homeSize) {
     case "large":

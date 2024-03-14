@@ -5,7 +5,8 @@ import { saveSS, getSS } from "./storage.js";
 
 window.onload = renderTbl(getSS());
 
-const start = function (houseHoldMembers, houseSize, firstname, lastname) {
+const start = (...data) => {
+  const [houseHoldMembers, houseSize, firstname, lastname] = data;
   const householdPTS = determineHouseholdPts(houseHoldMembers);
   const homesizePTS = considerSizeOfYourHome(houseSize);
   const total = homesizePTS + householdPTS;
@@ -24,7 +25,7 @@ const start = function (houseHoldMembers, houseSize, firstname, lastname) {
 };
 
 inputs.forEach((input) => input.addEventListener("blur", validation));
-FORM.addEventListener("submit", async function (e) {
+FORM.addEventListener("submit", async (e) => {
   e.preventDefault();
   const firstName = FORM.firstname.value;
   const lastName = FORM.lastname.value;
