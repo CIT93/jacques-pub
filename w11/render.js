@@ -108,11 +108,15 @@ function editNode(evt, index) {
   evt.preventDefault();
   const data = getSS();
   const [firstname, lastName] = FORM.querySelectorAll("input");
-  const [householdMembers, houseSize] = FORM.querySelectorAll("select");
+  const [householdMembers, houseSize, foodChoice, foodChoiceTwo] =
+    FORM.querySelectorAll("select");
   firstname.value = data[index].first;
   lastName.value = data[index].last;
   householdMembers.value = data[index].houseMembers;
   houseSize.value = data[index].houseSize;
+  foodChoice.value = data[index].foodChoice;
+  foodChoiceTwo.value = data[index].foodChoiceTwo;
+  foodChoiceTwo.disabled = false;
   deleteNode(evt, index);
 }
 export { renderTbl };
