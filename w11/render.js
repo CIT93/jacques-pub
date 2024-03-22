@@ -10,6 +10,7 @@ const renderTblHeading = () => {
     "Name",
     "Household",
     "HouseSize",
+    "Food Choice",
     "Footprint",
     "Actions",
   ];
@@ -47,12 +48,19 @@ const createTblRow = (tbody) => {
   const data = getSS();
   data.forEach(function (obj, index) {
     const tr = document.createElement("tr");
+    const ignoreVals = [
+      "householdPts",
+      "houseSizePts",
+      "last",
+      "foodChoiceTwo",
+      "foodChoicePts",
+    ];
     for (const [key, value] of Object.entries(obj)) {
-      if (key === "householdPts" || key === "houseSizePts" || key === "last") {
+      if (ignoreVals.some((val) => val === key)) {
         continue;
       }
       let td = document.createElement("td");
-      td.textContent = value;
+      td.textContent = `${value}`.replace("_", " ");
       tr.appendChild(td);
     }
     const actionForm = actionBtns(index);

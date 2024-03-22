@@ -26,7 +26,17 @@ FORM.addEventListener("submit", async (e) => {
   const lastName = FORM.lastname.value;
   const householdMembers = parseInt(FORM.householdMembers.value);
   const houseSize = FORM.houseSize.value;
-  const fpObj = new FP(firstName, lastName, householdMembers, houseSize);
+  const foodChoice = FORM.foodChoice.value;
+  const foodChoiceTwo = FORM.foodChoiceTwo.value;
+  const values = {
+    first: firstName,
+    last: lastName,
+    houseMembers: householdMembers,
+    houseSize,
+    foodChoice,
+    foodChoiceTwo,
+  };
+  const fpObj = new FP(values);
   const cfpData = getSS();
   saveSS([...cfpData, fpObj]);
   renderTbl();

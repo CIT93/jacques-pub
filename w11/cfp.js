@@ -57,3 +57,32 @@ export const considerSizeOfYourHome = (homeSize) => {
   }
   return impactPoints;
 };
+
+export const determineFoodChoicePts = (choiceOne, choiceTwo) => {
+  let foodPoints = 0;
+  switch (choiceOne) {
+    case "meat_daily":
+      foodPoints += 10;
+      break;
+    case "meat_few":
+      foodPoints += 8;
+      break;
+    case "vegetarian":
+      foodPoints += 4;
+      break;
+    case "vegan":
+      foodPoints += 2;
+      break;
+    default:
+      throw new Error("An occured. Could not determine food choice points.");
+  }
+  if (choiceTwo === "prepackaged_convenience") {
+    foodPoints += 12;
+  } else if (choiceTwo === "fresh_convenience") {
+    foodPoints += 6;
+  } else {
+    foodPoints += 2;
+  }
+  return foodPoints;
+};
+
