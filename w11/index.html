@@ -60,6 +60,25 @@
               <option value="apartment">Apartment</option>
             </select>
           </div>
+          <div>
+            <label for="foodInput">What are your food choices?</label>
+            <select name="foodChoice" id="foodInput" required>
+              <option value="">Choose One</option>
+              <option value="meat_daily">Eat domestic meat on a <strong>daily</strong> basis</option>
+              <option value="meat_few">Eat domestic meat a <strong>few</strong> times per week</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan or only eat wild meat</option>
+            </select>
+          </div>
+          <div>
+            <label for="foodInputTwo" class="disabled">How do you eat your food?</label>
+            <select name="foodChoiceTwo" id="foodInputTwo" required disabled>
+              <option value="">Choose One</option>
+              <option value="prepackaged_convenience">Prepackaged convenience food</option>
+              <option value="fresh_convenience">Good balance of fresh and convenience food</option>
+              <option value="fresh_local_hunted">Fresh, locally grown, or hunted food</option>
+            </select>
+          </div>
           <button type="submit">Submit</button>
         </fieldset>
       </form>

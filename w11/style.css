@@ -79,3 +79,9 @@ table, th, td {
 tbody tr:nth-child(odd) {
     background-color: rgb(129, 157, 118);
 }
+
+label[for="foodInputTwo"].disabled, select[name="foodChoiceTwo"]:disabled {
+    opacity: 0;
+    color: -internal-light-dark(graytext, rgb(170, 170, 170));
+    border-color: rgba(118, 118, 118, 0.3);
+}
