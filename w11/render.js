@@ -117,6 +117,7 @@ function editNode(evt, index) {
   foodChoice.value = data[index].foodChoice;
   foodChoiceTwo.value = data[index].foodChoiceTwo;
   foodChoiceTwo.disabled = false;
+  foodChoiceTwo.previousElementSibling.classList.remove("disabled");
   deleteNode(evt, index);
 }
 export { renderTbl };
