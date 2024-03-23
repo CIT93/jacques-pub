@@ -7,7 +7,7 @@ window.onload = renderTbl(getSS());
 
 inputs.forEach((input) => input.addEventListener("blur", validation));
 
-FORM.querySelector("#foodInput").addEventListener("blur", (e) =>
+FORM.querySelector("#foodInput").addEventListener("change", (e) =>
   disabledView(e.target)
 );
 FORM.addEventListener("submit", async (e) => {
