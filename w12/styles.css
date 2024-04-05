@@ -106,5 +106,6 @@ section > .form_input-wrapper {
 @media screen and (max-width: 1000px) {
   .wrapper, .form_input-wrapper {
     width: 100%;
+    padding: 1;
   }
 }
