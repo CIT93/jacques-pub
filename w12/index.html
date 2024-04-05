@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jacque S.">
+    <title>Week Twelve - Public</title>
+    <script src="main.js" defer type="module"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+        <div>
+            <label for="exerciseType">Exercise?</label><br>
+            <input type="text" id="exerciseType" name="exercise">
+        </div>
+        <div>
+            <label for="repsInput">Number of reps?</label><br>
+            <input type="text" id="repsInput" name="reps">
+        </div>
+        <div>
+            <label for="durationInput">Exercise Duration: <span id="durationVal">30 seconds</span></label><br>
+            <!-- I use step 30 since i'm going by every thirty seconds for time, this will make sense when i calculate -->
+            <input type="range" id="durationInput" name="duration" list="times" max="180" min="30" step="30" value="30">
+            <datalist id="times">
+                <option value="30" label="30 seconds"></option>
+                <option value="60" label="1 minute"></option>
+                <option value="90" label="1 minute 30 seconds"></option>
+                <option value="120" label="2 minutes"></option>
+                <option value="150" label="2 minutes 30 seconds"></option>
+                <option value="180" label="3 minutes"></option>
+            </datalist>
+        </div>
+        <div>
+            <input type="checkbox" name="sound" id="soundInput">
+            <label for="soundInput">with alert? <small>*if checked, double check your volume settings <em>before</em> starting*</small></label>
+        </div>
+        <button type="submit">Start</button>
+    </form>
+    <p id="countdown"></p>
+</body>
+</html>
