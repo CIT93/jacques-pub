@@ -102,3 +102,9 @@ form datalist, form input[type="range"] {
 section > .form_input-wrapper {
   padding-block: 4rem;
 }
+
+@media screen and (max-width: 1000px) {
+  .wrapper, .form_input-wrapper {
+    width: 100%;
+  }
+}
