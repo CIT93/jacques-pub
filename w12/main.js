@@ -38,18 +38,29 @@ window.onload = () => {
 
 function submission(evt) {
   evt.preventDefault();
+  if (document.getElementById("templateWrapper")) {
+    document.getElementById("templateWrapper").remove();
+  }
   const submitBtn = evt.target.querySelector("button");
   submitBtn.disabled = true;
-  handleTiming(evt.target.duration.value, evt.target.sound, submitBtn);
+  const exerciseType = evt.target.exercise.value;
+  const reps = evt.target.reps.value;
+  createExerciseView(exerciseType, reps);
+  const properties = {
+    inputDuration: evt.target.duration.value,
+    inputSound: evt.target.sound,
+    button: submitBtn,
+  };
+  handleTiming(properties, next);
 }
 
-function handleTiming(inputDuration, inputSound, button) {
+function handleTiming({ inputDuration, inputSound, button }, next) {
   const duration = TIMERS.find((timer) => timer.value === inputDuration).time;
   const withSound = inputSound.checked;
-  const p = document.getElementById("countdown");
-
+  const countdownEl = document.getElementById("countdown");
+  const iconEl = document.getElementById("icon");
   const data = setLoopingData(parseInt(inputDuration));
-  handleInterval(data.loops, data.time);
+  handleInterval(data.loops, data.time, countdownEl);
   setTimeout(() => {
     // For fun, I decided to add a short notification sound when the timer reaches zero. This set timeout is helpful for cleaning up/adding final code when duration ends.
     if (withSound) {
@@ -58,7 +69,9 @@ function handleTiming(inputDuration, inputSound, button) {
       audio.remove();
     }
     button.disabled = false;
-    p.textContent = "Completed!";
+    iconEl.textContent = "💯";
+    countdownEl.textContent = "Completed!";
+    next();
   }, duration);
 }
 
@@ -75,14 +88,13 @@ function setLoopingData(value) {
   );
 }
 
-function handleInterval(loops, time) {
+function handleInterval(loops, time, countdownEl) {
   // Seconds can be either 60 or 30; how we determine is those who will start with 30 seconds like, 30 seconds, or 1 minute and 30 seconds (90); otherwise, set as 60 since 1 minute, 2 minutes, and 3 minutes need it
   let seconds = time === 30 ? 30 : time === 90 ? 30 : time === 150 ? 30 : 60;
   let t = time;
   let l = loops;
   // Interval will loop every seccond to change the countdown text as the values change. The above helps maintain that when loops and seconds reach zero, to stop looping.
   let initInt = setInterval(() => {
-    const p = document.getElementById("countdown");
     if (l === 0 && seconds === 0) {
       clearInterval(initInt);
       initInt = null;
@@ -93,7 +105,7 @@ function handleInterval(loops, time) {
       seconds = 60;
     }
     const c = setCountdown(seconds, t);
-    p.textContent = c;
+    countdownEl.textContent = c;
     seconds--;
     t--;
   }, 1000);
@@ -111,4 +123,28 @@ function setCountdown(seconds, countdown) {
   } else if (countdown >= 180) {
     return crString("03");
   }
+}
+
+function cloneTemplate() {
+  const template = document.getElementById("template");
+  const clone = template.content.cloneNode(true);
+  return clone;
+}
+
+function createExerciseView(title, reps) {
+  const clone = cloneTemplate();
+  const titleEl = clone.getElementById("exerciseTitle");
+  const repsEl = clone.getElementById("reps");
+  const iconEl = clone.getElementById("icon");
+  titleEl.textContent = title;
+  repsEl.textContent = reps;
+  iconEl.textContent = "💪";
+  iconEl.style.fontSize = "3.8rem";
+  const section = document.body.querySelector("section");
+  section.appendChild(clone);
+}
+
+function next() {
+  const FORM = document.querySelector("form");
+  FORM.reset();
 }

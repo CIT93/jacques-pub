@@ -1,16 +1,104 @@
-/* datalist {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    writing-mode: vertical-lr;
-    width: 300px;
-  }
-  
-  option {
-    padding: 0;
-  }
-  
-  input[type="range"] {
-    width: 300px;
-    margin: 0;
-  } */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: lightcyan;
+  height: 105vh;
+  width: 100%;
+}
+body, label > span {
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.flex {
+  display: flex;
+}
+
+.flex_center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 5rem 3rem;
+  background-color: #fcfcfc;
+  width: 100%;
+}
+
+.form_input-wrapper {
+  margin-bottom: 1rem;
+  width: 800px;
+}
+
+.fw-900 {
+  font-weight: 900;
+}
+.fw-100 {
+  font-weight: 100;
+}
+.heading_ff, .countdown {
+  font-family: "Bungee Spice", sans-serif;
+  font-style: normal;
+}
+.heading_ff {
+  font-weight: 400;
+  font-size: 2rem;
+}
+.fs-xs {
+  font-size: .96rem;
+}
+.fs-md {
+  font-size: 1.5rem;
+}
+
+.fs-lg {
+  font-size: 2.6rem;
+}
+.fs-xxl {
+  font-size: 5rem;
+}
+.primary-color {
+  color: orangered;
+}
+h2 {
+  text-transform: uppercase;
+}
+
+label > span {
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+
+form button {
+  margin-top: 3rem;
+  padding: .40rem 4rem;
+  font-size: 1rem;
+  border: 1.2px solid;
+  background-color: transparent;
+
+}
+
+form button:hover {
+  border-color: rgba(255, 69, 0, 0.5);
+  background-color: #f8f8f8;
+}
+
+form datalist, form input[type="range"] {
+  width: 14rem;
+}
+
+.countdown {
+  margin-block: .6rem;
+  font-size: 4rem;
+}
+section > .form_input-wrapper {
+  padding-block: 4rem;
+}
