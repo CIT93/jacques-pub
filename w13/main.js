@@ -26,11 +26,16 @@ window.onload = () => {
     durationValue.textContent = value;
   });
 
-  FORM.addEventListener("submit", submission);
+  FORM.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submission(e)
+      .then(handleTiming)
+      .catch((err) => console.error(`An error occurred: ${err}.`))
+      .finally(next);
+  });
 };
 
 function submission(evt) {
-  evt.preventDefault();
   if (document.getElementById("templateWrapper")) {
     document.getElementById("templateWrapper").remove();
   }
@@ -44,10 +49,16 @@ function submission(evt) {
     inputSound: evt.target.sound,
     button: submitBtn,
   };
-  handleTiming(properties, next);
+  return new Promise((res, rej) => {
+    try {
+      res(properties);
+    } catch (err) {
+      rej(err);
+    }
+  });
 }
 
-function handleTiming({ inputDuration, inputSound, button }, next) {
+function handleTiming({ inputDuration, inputSound, button }) {
   const duration = TIMERS.find((timer) => timer.value === inputDuration).time;
   const withSound = inputSound.checked;
   const countdownEl = document.getElementById("countdown");
@@ -64,7 +75,6 @@ function handleTiming({ inputDuration, inputSound, button }, next) {
     button.disabled = false;
     iconEl.textContent = "💯";
     countdownEl.textContent = "Completed!";
-    next();
   }, duration);
 }
 
