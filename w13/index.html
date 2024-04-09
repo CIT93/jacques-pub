@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jacque S.">
+    <title>Week Thirteen - Public</title>
+    <script src="main.js" defer type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Google Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="wrapper flex flex_center flex_column">
+        <h1 class="fs-xxl fw-100">
+            Exercise Timer
+            <span class="fs-xs fw-100">by Jacque S.</span>
+        </h1>
+        <form class="flex flex_center flex_column">
+            <div class="wrapper">
+                <div class="form_input-wrapper">
+                    <label for="exerciseType" class="heading_ff">Exercise Type</label><br>
+                    <input type="text" id="exerciseType" name="exercise" required>
+                </div>
+                <div class="form_input-wrapper">
+                    <label for="repsInput"><span class="heading_ff">Number of reps</span><small>(must be five or higher and less than one hundred)</small></label><br>
+                    <input type="number" min="5" max="100" id="repsInput" name="reps" required>
+                </div>
+                <div class="form_input-wrapper">
+                    <label for="durationInput" class="heading_ff">Exercise Duration: <span id="durationVal">30
+                            seconds</span></label><br>
+                    <!-- I use step 30 since i'm going by every thirty seconds for time, this will make sense when i calculate -->
+                    <input type="range" id="durationInput" name="duration" list="times" max="180" min="30" step="30"
+                        value="30" required>
+                    <datalist id="times">
+                        <option value="30" label="30 seconds"></option>
+                        <option value="60" label="1 minute"></option>
+                        <option value="90" label="1 minute 30 seconds"></option>
+                        <option value="120" label="2 minutes"></option>
+                        <option value="150" label="2 minutes 30 seconds"></option>
+                        <option value="180" label="3 minutes"></option>
+                    </datalist>
+                </div>
+                <div class="form_input-wrapper">
+                    <input type="checkbox" name="sound" id="soundInput">
+                    <label for="soundInput">with alert? <small>*if checked, double check your volume settings
+                            <em>before</em> starting*</small></label>
+                </div>
+                <button type="submit" color="primary-color">Start</button>
+            </div>
+        </form>
+    </div>
+
+    <section class="flex flex_center">
+        <template id="template">
+            <div class="form_input-wrapper" id="templateWrapper">
+                <h2 class="fw-900 fs-lg primary-color">Let's Exercise!</h2>
+                <div>
+                    <p class="fs-md"><span class="fw-900">Title:</span> <span id="exerciseTitle"></span></p>
+                    <p class="fs-md"><span class="fw-900">Reps:</span> <span id="reps">2</span></p>
+                    <p class="fw-900 fs-md primary-color">Timer</p>
+                    <p>
+                        <span id="icon" aria-hidden="true"></span>
+                        <span id="countdown" class="countdown"></span>
+                    </p>
+                </div>
+            </div>
+        </template>
+    </section>
+
+</body>
+
+</html>
