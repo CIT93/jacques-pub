@@ -93,7 +93,7 @@ function setLoopingData(value) {
 
 function handleInterval(loops, time, countdownEl) {
   // Seconds can be either 60 or 30; how we determine is those who will start with 30 seconds like, 30 seconds, or 1 minute and 30 seconds (90); otherwise, set as 60 since 1 minute, 2 minutes, and 3 minutes need it
-  let seconds = time === 30 ? 30 : time === 90 ? 30 : time === 150 ? 30 : 60;
+  let seconds = time === 30 || time === 90 || time === 150 ? 30 : 60;
   let t = time;
   let l = loops;
   // Interval will loop every seccond to change the countdown text as the values change. The above helps maintain that when loops and seconds reach zero, to stop looping.
