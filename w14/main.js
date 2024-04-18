@@ -33,6 +33,7 @@ async function photosView() {
       p.textContent = `Album: ${photos[i].albumId}, `;
       p.appendChild(a);
       p.style.fontSize = ".65rem";
+      li.style.textAlign = "center";
       li.append(img, p);
       gallery.appendChild(li);
     }
