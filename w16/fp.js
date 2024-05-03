@@ -3,6 +3,7 @@ import {
   considerSizeOfYourHome,
   determineFoodChoicePts,
   determineConsumptionPts,
+  determineHouseholdPurchasesPts,
 } from "./cfp.js";
 
 class FP {
@@ -15,10 +16,12 @@ class FP {
     this.foodChoiceTwo = prop.foodChoiceTwo;
     this.waterConsumption = prop.waterConsumption;
     this.waterConsumptionTwo = prop.waterConsumptionTwo;
+    this.householdPurchases = prop.householdPurchases;
     this.setHouseholdPts();
     this.sethouseSizePts();
     this.setFoodChoicePts();
     this.setConsumptionPts();
+    this.setHouseholdPurchasePts();
     this.total();
   }
 
@@ -62,12 +65,21 @@ class FP {
       this.waterConsumptionPts = points;
     }
   }
+  setHouseholdPurchasePts() {
+    const points = determineHouseholdPurchasesPts(this.householdPurchases);
+    if (!points) {
+      throw new Error("Could not determine household purchases points.");
+    } else {
+      this.householdPurchasesPts = points;
+    }
+  }
   total() {
     this.total =
       this.houseSizePts +
       this.householdPts +
       this.foodChoicePts +
-      this.waterConsumptionPts;
+      this.waterConsumptionPts +
+      this.householdPurchasesPts;
   }
 }
 

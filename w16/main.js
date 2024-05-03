@@ -20,6 +20,7 @@ FORM.addEventListener("submit", async (e) => {
   const foodChoiceTwo = FORM.foodChoiceTwo.value;
   const waterConsumption = FORM.waterConsumption.value;
   const waterConsumptionTwo = FORM.waterConsumptionTwo.checked;
+  const householdPurchases = FORM.householdPurchases.value;
   const values = {
     first: firstName,
     last: lastName,
@@ -29,6 +30,7 @@ FORM.addEventListener("submit", async (e) => {
     foodChoiceTwo,
     waterConsumption,
     waterConsumptionTwo,
+    householdPurchases,
   };
   const fpObj = new FP(values);
   const cfpData = getSS();

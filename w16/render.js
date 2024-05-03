@@ -53,6 +53,8 @@ const createTblRow = (tbody) => {
       "waterConsumptionPts",
       "waterConsumption",
       "waterConsumptionTwo",
+      "householdPurchases",
+      "householdPurchasesPts",
     ];
     Object.entries(obj).forEach(([key]) => {
       if (!ignoreVals.some((val) => val === key)) {
@@ -113,6 +115,7 @@ function editNode(evt, index) {
     foodChoice,
     foodChoiceTwo,
     waterConsumption,
+    householdPurchases,
   ] = FORM.querySelectorAll("select");
   firstname.value = data[index].first;
   lastName.value = data[index].last;
@@ -124,6 +127,7 @@ function editNode(evt, index) {
   foodChoiceTwo.previousElementSibling.classList.remove("disabled");
   waterConsumption.value = data[index].waterConsumption;
   waterConsumptionTwo.checked = data[index].waterConsumptionTwo;
+  householdPurchases.value = data[index].householdPurchases;
   deleteNode(evt, index);
 }
 

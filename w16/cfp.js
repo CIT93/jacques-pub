@@ -108,4 +108,28 @@ export const determineConsumptionPts = (choiceOne, choiceTwo) => {
   }
   return consumptionPoints;
 };
-
+export const determineHouseholdPurchasesPts = (choice) => {
+  let householdPurchasePts = 0;
+  switch (choice) {
+    case "more":
+      householdPurchasePts += 10;
+      break;
+    case "five_seven":
+      householdPurchasePts += 8;
+      break;
+    case "three_five":
+      householdPurchasePts += 6;
+      break;
+    case "less":
+      householdPurchasePts += 4;
+      break;
+    case "nothing_secondhand":
+      householdPurchasePts += 2;
+      break;
+    default:
+      throw new Error(
+        "An error occured. Could not determine consumptopn of household purchases points."
+      );
+  }
+  return householdPurchasePts;
+};
