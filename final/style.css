@@ -52,7 +52,8 @@ button {
 button[data-action="delete"],
 form legend, 
 [data-wrapper="movieDetails"] .card-header > div {
-  color: #0f0f0f;
+  color: #d9dfc5;
+  letter-spacing:2.5px;
 }
 form div {
   margin-left: 1.5rem;
@@ -173,7 +174,7 @@ section > .card-header {
   width: 40%;
   font-size: 1.8rem;
   font-weight: 900;
-  filter: drop-shadow(-1.5px 0px 0px #333);
+  filter: drop-shadow(-3px 1.5px 2px #000);
 }
 .card-header img {
   width: 10rem;
