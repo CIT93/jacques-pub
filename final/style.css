@@ -1,0 +1,244 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Arsenal", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body,
+main,
+.flex-column {
+  background-color: #f5f5f5;
+}
+main[data-wrapper='home'] h1 {
+  font-size:4.5rem;
+}
+main[data-wrapper='home'] p {
+  font-size: 1.6rem;
+}
+fieldset {
+  border: none;
+}
+
+header {
+  padding: 2rem 3rem;
+}
+
+header, footer {
+  background-color: #e9e9e9;
+}
+
+section {
+  padding: 2.5rem 3.25rem;
+}
+form label {
+  font-size: 1.85rem;
+}
+form legend {
+  font-weight: bolder;
+  font-size: 3rem;
+  padding-block: 1rem;
+}
+
+button {
+  padding: 0.25rem 1rem;
+  border-radius: 8%;
+  border-color: #333;
+  margin: 0.14rem;
+}
+button[data-action="delete"],
+form legend, 
+[data-wrapper="movieDetails"] .card-header > div {
+  color: #0f0f0f;
+}
+form div {
+  margin-left: 1.5rem;
+}
+.flex {
+  display: flex;
+}
+
+.flex-center_center {
+  justify-content: center;
+  align-items: center;
+}
+p.error {
+  color: rgb(255, 135, 135);
+  -webkit-text-stroke: 3px red;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+.page-wrapper {
+  min-height: 85vh;
+  scroll-behavior: smooth;
+}
+
+a, .text-center {
+  text-align: center;
+}
+.m-auto {
+  margin: auto;
+}
+.h-100 {
+  height: 100%;
+}
+.w-100 {
+  width: 100%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-33 {
+  width: 33.33%;
+}
+.w-66 {
+  width: 66%;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+.p-relative {
+  position: relative;
+}
+.p-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.z-index-50 {
+  z-index: 50;
+}
+.z-index-neg-1 {
+  z-index: -60;
+}
+.heading-font_display {
+  font-family: "Abril Fatface", serif;
+}
+.heading-font {
+  font-family: "Prata", serif;
+}
+.link {
+  margin-inline: 0.5rem;
+  padding-inline: 1.2rem;
+}
+
+.tag {
+  border: 0.5px solid;
+  border-radius: 50px;
+  background-color: #efefef;
+  display: inline;
+  padding: 0.25rem 0.5rem;
+  color: #333;
+}
+
+li.card-wrapper {
+  border: 3px solid #d9dfc5;
+  padding: 2rem 1rem;
+  margin-block: 1rem;
+  color: #333;
+  border-radius: 5%;
+  -webkit-box-shadow: -10px 4px 1px -1px rgba(217, 223, 197, 1);
+  -moz-box-shadow: -10px 4px 1px -1px rgba(217, 223, 197, 1);
+  box-shadow: -10px 4px 1px -1px rgba(217, 223, 197, 1);
+}
+.card-wrapper p[data-movie="title"] {
+  font-size: 1.6rem;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+section > .card-header {
+  border-top-left-radius: 20%;
+}
+[data-wrapper="history"] {
+  overflow: auto;
+  max-height: 85vh;
+}
+[data-wrapper="movieDetails"] .card-header {
+  padding: 1rem;
+  height: 540px;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+[data-wrapper="movieDetails"] .card-header > div {
+  width: 40%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  filter: drop-shadow(-1.5px 0px 0px #333);
+}
+.card-header img {
+  width: 10rem;
+  border-top-left-radius: 8%;
+  border-bottom-right-radius: 8%;
+}
+[data-wrapper="movieDetails"] .card-header p[data-movie="title"] {
+  font-size: 3.8rem;
+  color: #d9dfc5;
+}
+
+section .card-header_info {
+  padding: 3rem 2rem;
+}
+section .card-header_info p + p {
+  margin-top: 1.36rem;
+}
+
+section .card-body {
+  font-size: 1.56rem;
+}
+section .card-body p.card-heading, .loading-icon {
+  color: #0a8af5;
+}
+section h2 {
+  font-size: 3rem;
+}
+
+.loading-wrapper{
+	font-size: 5.5rem;
+}
+.loading-icon {
+	animation: loading 3s linear infinite;
+	transition: animation 3s;
+}
+footer {
+  height: 3rem;
+}
+@keyframes loading {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(-360deg); }
+}
+
+@media screen and (max-width: 1200px) {
+  .w-33,
+  .w-50,
+  .w-66,
+  [data-wrapper="movieDetails"] .card-header > div {
+    width: 100%; 
+  }
+  [data-wrapper="history"] {
+    max-height: 60vh;
+  }
+
+  [data-wrapper="movieDetails"] .card-header p[data-movie="title"] {
+    font-size: 2.5rem;
+    
+  }
+  [data-wrapper="movieDetails"] .card-header {
+    background-position: 50% 60% !important;
+  }
+  .flex {
+    flex-direction: column;
+  }
+  [data-wrapper="history"] .flex {
+    flex-direction: row;
+  }
+}

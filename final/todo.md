@@ -1,0 +1,5 @@
+- ~~[] Create additional Class if Movie isn't enough~~
+- [x] Add loading page when waiting for results
+- [x] Make count for requests more concrete
+- [x] Fix styling
+- [x] Change theme
