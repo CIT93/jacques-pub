@@ -50,10 +50,8 @@ button {
   margin: 0.14rem;
 }
 button[data-action="delete"],
-form legend, 
-[data-wrapper="movieDetails"] .card-header > div {
-  color: #d9dfc5;
-  letter-spacing:2.5px;
+form legend {
+  color: orangered;
 }
 form div {
   margin-left: 1.5rem;
@@ -174,6 +172,7 @@ section > .card-header {
   width: 40%;
   font-size: 1.8rem;
   font-weight: 900;
+  letter-spacing:2.5px;
   filter: drop-shadow(-3px 1.5px 2px #000);
 }
 .card-header img {
@@ -183,8 +182,12 @@ section > .card-header {
 }
 [data-wrapper="movieDetails"] .card-header p[data-movie="title"] {
   font-size: 3.8rem;
-  color: #d9dfc5;
+  
 }
+[data-wrapper="movieDetails"] .card-header p[data-movie="title"],
+[data-wrapper="movieDetails"] .card-header > div {
+  color: #d9dfc5;
+ }
 
 section .card-header_info {
   padding: 3rem 2rem;
