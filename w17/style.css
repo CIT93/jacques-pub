@@ -1,0 +1,87 @@
+html {
+    font-size: 1.375rem;
+  }
+body {
+margin: 0;
+}
+header {
+background-color: #333;
+color: whitesmoke;
+}
+.wrapper {
+width: 80%;
+}
+form,
+.wrapper {
+margin: 0 auto;
+padding: 0.85rem 1.85rem;
+}
+main {
+background-color: #fff;
+color: initial;
+}
+section > h2 {
+text-align: center;
+}
+ul {
+list-style-type: "⚡";
+max-height: 31.25rem;
+overflow: auto;
+}
+@media only screen and (max-width: 800px) {
+.wrapper, header {
+    width: 100%;
+}
+.wrapper {
+    padding-inline: 0;
+}
+ul {
+    max-height: 100%;
+}
+}
+.hidden {
+    visibility: hidden;
+    font-size: 0;
+}
+
+form#formActions,
+form#formActions button {
+    display: flex;
+}
+form#formActions {
+ justify-content: space-evenly;   
+}
+form#formActions button {
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;
+    margin-inline: 3.5px;
+}
+
+form button#delBtn{
+    color: red;
+    border: 1px solid;
+}
+form button#delBtn:hover {
+    color: rgba(255, 0, 0, 0.7);
+}
+form button#editBtn {
+    color: rgb(10, 152, 247);
+    border: 1px solid;
+}
+form button#editBtn:hover {
+    color: rgba(10, 152, 247, 0.7);
+}
+table, th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+tbody tr:nth-child(odd) {
+    background-color: rgb(129, 157, 118);
+}
+
+label[for="foodInputTwo"].disabled, select[name="foodChoiceTwo"]:disabled {
+    opacity: 0;
+    color: -internal-light-dark(graytext, rgb(170, 170, 170));
+    border-color: rgba(118, 118, 118, 0.3);
+}

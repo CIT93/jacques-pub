@@ -1,0 +1,2 @@
+# How I'd Implement Amount of Waste Input
+What makes the "Identify the amount of waste that you recycle" question unique is there can be more than one answer. I believe the best way to handle this is using checkbox inputs and on submit, filter through all values that are checked for input by checked state.
